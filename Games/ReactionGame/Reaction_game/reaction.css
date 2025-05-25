@@ -1,0 +1,142 @@
+body {
+  background: #0f172a;
+  color: #08fdd8;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  min-width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+h1 {
+  margin: 30px 0 20px 0;
+}
+
+#game-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+  min-width: 340px;
+}
+
+/* Enlarged reaction box */
+#box {
+  width: 400px;
+  height: 220px;
+  background: #22223b;
+  color: #08fdd8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 24px;
+  font-size: 1.6em;
+  margin-bottom: 32px;
+  border: 4px solid #08fdd8;
+  box-shadow: 0 0 24px #08fdd8;
+  transition: background 0.2s, color 0.2s;
+  cursor: pointer;
+  user-select: none;
+  padding: 10px;
+}
+
+#box.ready {
+  background: #fca311;
+  color: #0f172a;
+}
+
+#box.go {
+  background: #08fdd8;
+  color: #0f172a;
+}
+
+#box.too-soon {
+  background: #d90429;
+  color: #fff;
+}
+
+#start-btn, #continue-btn {
+  width: 180px;
+  height: 60px;
+  background: #08fdd8;
+  color: #0f172a;
+  border: none;
+  border-radius: 14px;
+  font-size: 1.3em;
+  padding: 14px 40px;
+  margin-bottom: 20px;
+  cursor: pointer;
+  font-weight: bold;
+  box-shadow: 0 0 14px #08fdd8;
+  transition: background 0.3s;
+  display: block;
+}
+
+#start-btn:hover, #continue-btn:hover {
+  background: #00bfae;
+}
+
+#result {
+  margin-top: 10px;
+  font-size: 1.2em;
+  min-height: 32px;
+  color: #fca311;
+  font-weight: bold;
+}
+
+#points {
+  margin-top: 12px;
+  font-size: 1.2em;
+  color: #08fdd8;
+  font-weight: bold;
+}
+
+#explanation {
+  background: #22223b;
+  color: #fff;
+  border-radius: 12px;
+  padding: 18px 24px;
+  margin-top: 18px;
+  margin-bottom: 18px;
+  font-size: 1.08em;
+  box-shadow: 0 0 12px #08fdd8;
+  max-width: 440px;
+  display: none;
+}
+
+#continue-btn {
+  margin-bottom: 0;
+  margin-top: 18px;
+}
+
+#back-btn {
+  width: 180px;
+  height: 60px;
+  background: #22223b;
+  color: #fca311;
+  border: 2px solid #fca311;
+  border-radius: 14px;
+  font-size: 1.3em;
+  padding: 14px 40px;
+  margin-bottom: 0;
+  margin-top: 18px;
+  cursor: pointer;
+  font-weight: bold;
+  box-shadow: 0 0 14px #fca311;
+  transition: background 0.3s, color 0.3s;
+  display: inline-block;
+  vertical-align: middle;
+}
+#back-btn:hover {
+  background: #fca311;
+  color: #22223b;
+}
+.box-disabled {
+  pointer-events: none;
+  opacity: 0.6;
+}

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Chess Game</title>
+  <link rel="stylesheet" href="chess.css" />
+</head>
+<body>
+  <h1>Chess Game</h1>
+  <div id="mode-select">
+  <div style="font-size:1.3em;margin-bottom:8px;">Choose Game Mode:</div>
+  <button onclick="startGame('2p')">2 Player</button>
+  <button onclick="startGame('ai')">Player vs AI</button>
+</div>
+  <button id="back-btn" onclick="history.back()" style="margin-top:24px;">Back</button>
+
+  <div id="status"></div>
+  <div id="chessboard" style="display:none;"></div>
+  <button id="restart-btn" style="display:none;" onclick="restartGame()">Restart</button>
+  <script src="chess.js"></script>
+</body>
+</html>
