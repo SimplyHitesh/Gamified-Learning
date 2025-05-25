@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Edu Platform - Home</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="container">
+    <div id="sidebar-placeholder"></div>
+
+    <main class="main-content">
+      <div class="main-top-bar">
+        <input type="search" placeholder="Search courses, users, topics..." aria-label="Search" />
+      </div>
+      <div class="center-container">
+        <div class="courses-card">
+          <h3>Courses</h3>
+          <div class="courses-list">
+            <div class="course-row">
+              <img src="https://img.icons8.com/color/48/000000/udemy.png" alt="Udemy" />
+              <div>
+                <strong>Complete Web Development Bootcamp</strong>
+                <div class="course-meta">by Udemy</div>
+              </div>
+              <button class="view-btn" onclick="window.open('https://www.udemy.com/course/the-complete-web-development-bootcamp/', '_blank')">View course</button>
+            </div>
+            <div class="course-row">
+              <img src="https://img.icons8.com/color/48/000000/youtube-play.png" alt="YouTube" />
+              <div>
+                <strong>Python Tutorial For Beginners in Hindi</strong>
+                <div class="course-meta">by YouTube</div>
+              </div>
+              <button class="view-btn" onclick="window.open('https://www.youtube.com/watch?v=UrsmFxEIp5k', '_blank')">View course</button>
+            </div>
+            <div class="course-row">
+              <img src="https://img.icons8.com/color/48/000000/linkedin.png" alt="LinkedIn Learning" />
+              <div>
+                <strong>Generative AI</strong>
+                <div class="course-meta">by LinkedIn Learning</div>
+              </div>
+              <button class="view-btn" onclick="window.open('https://www.linkedin.com/learning/what-is-generative-ai/generative-ai-is-a-tool-in-service-of-humanity', '_blank')">View course</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      fetch('sidebar.html')
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById('sidebar-placeholder').innerHTML = data;
+        })
+        .catch(err => console.error('Failed to load sidebar:', err));
+    });
+  </script>
+</body>
+</html>

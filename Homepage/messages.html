@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Edu Platform - Messages</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* Add/override these for purple bubbles and active chat */
+    .chat-list li.active {
+      background: #6c63ff !important;
+      color: #fff;
+    }
+    .msg.self {
+      background: #6c63ff;
+      color: #fff;
+      align-self: flex-end;
+    }
+    .msg.other {
+      background: #fff;
+      color: #222;
+      align-self: flex-start;
+    }
+    .chat-messages {
+      display: flex;
+      flex-direction: column;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <nav class="sidebar">
+      <div class="logo">F.</div>
+      <ul class="sidebar-menu">
+        <li><a class="nav-btn" href="index.html" title="Home"><span>🏠</span></a></li>
+        <li><a class="nav-btn active" href="messages.html" title="Messages"><span>💬</span></a></li>
+        <li><a class="nav-btn" href="stats.html" title="User Stats"><span>👤</span></a></li>
+        <li><a class="nav-btn" href="settings.html" title="Settings"><span>⚙️</span></a></li>
+        <li><a class="nav-btn" href="game1/index.html" title="Game"><span>🎮</span></a></li>
+      </ul>
+      <div class="sidebar-bottom">
+        <a class="nav-btn logout-btn" href="login.html" title="Logout"><span>🚪</span></a>
+      </div>
+    </nav>
+    <main class="main-content">
+      <div class="main-top-bar">
+        <input type="search" placeholder="Search messages..." aria-label="Search" />
+      </div>
+      <div class="center-container">
+        <div class="messages-container">
+          <aside class="chat-list">
+            <div class="chat-header">
+              <h3>Chatrooms</h3>
+            </div>
+            <input class="chat-search" type="text" placeholder="Search..." />
+            <ul id="userList">
+              <li class="active" data-user="Martina Wolna">
+                <img src="https://i.pravatar.cc/30?img=1" alt="User" />
+                <span>Martina Wolna</span>
+              </li>
+              <li data-user="David Moore">
+                <img src="https://i.pravatar.cc/30?img=2" alt="User" />
+                <span>David Moore</span>
+              </li>
+            </ul>
+          </aside>
+          <div class="chat-window">
+            <div class="chat-header">
+              <span id="chatUser">Martina Wolna</span>
+            </div>
+            <div class="chat-messages" id="chatMessages"></div>
+            <form class="chat-input" id="chatForm" autocomplete="off">
+              <input type="text" id="chatInput" placeholder="Message..." autocomplete="off" />
+              <button type="submit">Send</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+  <script>
+    // Chat state: store messages by user name
+    const chats = {
+      "Martina Wolna": [],
+      "David Moore": []
+    };
+
+    // Elements
+    const userList = document.getElementById('userList');
+    const chatUser = document.getElementById('chatUser');
+    const chatMessages = document.getElementById('chatMessages');
+    const chatForm = document.getElementById('chatForm');
+    const chatInput = document.getElementById('chatInput');
+    let currentUser = "Martina Wolna";
+
+    // Render chat messages for current user
+    function renderMessages() {
+      chatMessages.innerHTML = '';
+      chats[currentUser].forEach(msg =>
+        chatMessages.innerHTML += `<div class="msg ${msg.sender}">${msg.text}</div>`
+      );
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+
+    // Handle user switching
+    userList.addEventListener('click', (e) => {
+      const li = e.target.closest('li[data-user]');
+      if (!li) return;
+      // Remove active from all
+      userList.querySelectorAll('li').forEach(el => el.classList.remove('active'));
+      li.classList.add('active');
+      currentUser = li.getAttribute('data-user');
+      chatUser.textContent = currentUser;
+      renderMessages();
+    });
+
+    // Handle sending messages
+    chatForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const text = chatInput.value.trim();
+      if (!text) return;
+      chats[currentUser].push({ sender: 'self', text });
+      renderMessages();
+      chatInput.value = '';
+      chatInput.focus();
+    });
+
+    // Optionally, add a default first message per user
+    chats["Martina Wolna"].push({ sender: 'other', text: "Hi! How was the course?" });
+    chats["David Moore"].push({ sender: 'other', text: "Can you help me with python?" });
+
+    // Initial render
+    renderMessages();
+  </script>
+</body>
+</html>
