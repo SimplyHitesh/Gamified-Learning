@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Shell Game - Guess the Ball</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <h1>Shell Game - Guess the Ball</h1>
+
+  <div id="cup-count-selection">
+    <label for="cup-count">Choose number of cups:</label>
+    <select id="cup-count">
+      <option value="3" selected>3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+    </select>
+    <button id="start-game-btn">Start Game</button>
+  </div>
+
+  <div id="game-area" style="display:none;">
+    <p>Follow the cups carefully! Click the cup hiding the ball.</p>
+    <div id="cups-container"></div>
+    <p id="feedback-message" style="margin-top: 15px; font-weight: bold; color: #fca311;"></p>
+</div>
+
+  <div id="result-area" style="display:none;">
+    <p id="result-message"></p>
+    <p id="probability-message"></p>
+    <button id="play-again-btn">Play Again</button>
+</div>
+
+
+  <script src="script.js"></script>
+</body>
+</html>

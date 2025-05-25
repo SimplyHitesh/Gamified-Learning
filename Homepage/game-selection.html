@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Select a Game</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #0f172a; /* Navy blue background */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px;
+      color: #08fdd8; /* Bright accent color for text */
+      min-height: 100vh;
+      margin: 0;
+    }
+    h1 {
+      color: #08fdd8;
+      margin-bottom: 30px;
+    }
+    .game-option {
+      background: #08fdd8;
+      color: #0f172a;
+      padding: 20px 40px;
+      margin: 15px;
+      border-radius: 12px;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 0 15px #08fdd8;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      text-decoration: none;
+      display: inline-block;
+      min-width: 200px;
+      text-align: center;
+    }
+    .game-option:hover {
+      background-color: #06c1aa;
+      transform: scale(1.05);
+      color: #0f172a;
+    }
+  </style>
+</head>
+<body>
+  <h1>Select a Game</h1>
+  <a href="game1/index.html" class="game-option">Quiz Game</a>
+  <a href="probability/index.html" class="game-option">Probability Game</a>
+  <!-- Add more game links here -->
+</body>
+</html>
+
