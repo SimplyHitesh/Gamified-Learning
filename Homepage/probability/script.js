@@ -139,3 +139,4 @@ playAgainBtn.addEventListener('click', () => {
 });
 
 
+
